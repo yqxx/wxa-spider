@@ -1,0 +1,8 @@
+text{
+  font-size: 80%;
+}
+
+.weui-media-box {
+  padding: 30px;
+}
+
