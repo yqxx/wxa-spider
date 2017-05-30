@@ -10,24 +10,27 @@ Page({
     wx.request({
       url: 'https://api.liyiqi.me/list',
       success: function (res) {
-        console.log(res);
+        var list = new Array();
+        for(var d in res.data){
+          var data = res.data[d];
+          data.sourceName = app.globalData.source[data.source].name;
+          data.sourceIcon = app.globalData.source[data.source].icon;
+          list.push(data);
+        }
         that.setData({
-          list: res.data
+          list: list
         })
       },
       fail:function(res){
         console.log(res);
       }
-    })
-    
-    
+    })   
   },
-  imageLoad: function (e) {
-    var imageSize = imageUtil.imageUtil(e)
-    console.log(imageSize)
-    this.setData({
-      imagewidth: imageSize.imageWidth,
-      imageheight: imageSize.imageHeight
+  goDetailView: function (e) {
+    var id = e.currentTarget.dataset.id;
+    var source = e.currentTarget.dataset.source;
+    wx.navigateTo({
+      url: '/pages/detail/detail?sid=' + id + '&source=' + source
     })
   }
 })

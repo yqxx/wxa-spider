@@ -1,15 +1,18 @@
 <view class="weui-panel">
   <view wx:for="{{list}}">
-    <image mode="widthFix" src="{{item.img}}" style="width: {{imageWidth}}px;"></image>
-    <view class="weui-panel__hd">{{item.title}}</view>
-      <view class="weui-panel__bd">
-        <view class="weui-media-box weui-media-box_text">
-          <view class="weui-media-box__desc">{{item.info}}</view>
-          <view class="weui-media-box__info">
-              <view class="weui-media-box__info__meta">文字来源:{{item.source}}</view>
-              <view class="weui-media-box__info__meta">时间:{{item.date}}</view>
-              <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">作者:{{item.author}}</view>
-          </view>
+    <view class="section" data-id="{{item.sid}}" data-source="{{item.source}}" bindtap="goDetailView">
+      <image mode="widthFix" src="{{item.img}}" style="width: {{imageWidth}}px;"></image>
+      <view class="weui-panel__hd">{{item.title}}</view>
+        <view class="weui-panel__bd">
+          <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__desc">{{item.info}}</view>
+            <view class="weui-media-box__info">
+                <image class="source_icon" src="{{item.sourceIcon}}"></image>
+                <view class="weui-media-box__info__meta">{{item.sourceName}}</view>
+                <view class="weui-media-box__info__meta">时间:{{item.date}}</view>
+                <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">作者:{{item.author}}</view>
+            </view>
+        </view>
       </view>
     </view>
   </view>

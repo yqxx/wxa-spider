@@ -1,0 +1,5 @@
+.weui-article__p{
+  font-size: 80%;
+  color:#999999;
+}
+

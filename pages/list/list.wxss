@@ -6,3 +6,12 @@ text{
   padding: 30px;
 }
 
+.source_icon{
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.weui-media-box__info {
+  line-height:1.8em;
+}
