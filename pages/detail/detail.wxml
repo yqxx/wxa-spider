@@ -1,8 +1,18 @@
 <view class="page">
   <view class="page__bd">
     <view class="weui-article">
+      <view class="weui-article__h1">{{title}}</view>
       <view class="weui-article__section">
-          {{detail.content}}
+        <view wx:for="{{list}}">
+          <view class="weui-article__p">
+            <view wx:if="{{item.type == 'img'}}">
+              <image mode="widthFix" src="{{item.value}}" style="width: 100%;"></image>
+            </view>
+            <view wx:if="{{item.type == 'txt'}}">
+              {{item.value}}
+            </view>
+          </view>
+        </view>
       </view>
     </view>
   </view>

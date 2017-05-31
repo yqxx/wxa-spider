@@ -1,4 +1,4 @@
-var imageUtil = require('../../utils/util.js');  
+var util = require('../../utils/util.js');  
 var app = getApp()
 Page({
   data: {
@@ -15,8 +15,10 @@ Page({
           var data = res.data[d];
           data.sourceName = app.globalData.source[data.source].name;
           data.sourceIcon = app.globalData.source[data.source].icon;
+          data.time = util.topicTime(new Date(data.createdAt).getTime());
           list.push(data);
         }
+        console.log(list)
         that.setData({
           list: list
         })

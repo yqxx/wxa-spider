@@ -8,10 +8,10 @@ text{
 
 .source_icon{
   float: left;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   margin-right: 5px;
 }
 .weui-media-box__info {
-  line-height:1.8em;
+  line-height:1.2em;
 }

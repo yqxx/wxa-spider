@@ -1,8 +1,9 @@
-var imageUtil = require('../../utils/util.js');  
+var imageUtil = require('../../utils/util.js');
 var app = getApp()
 Page({
   data: {
-    detail: {},
+    title:'',
+    list: [],
     imageWidth: wx.getSystemInfoSync().windowWidth
   },
   onLoad: function (option) {
@@ -10,15 +11,13 @@ Page({
     wx.request({
       url: 'https://api.liyiqi.me/detail/' + option.source + '/' + option.sid,
       success: function (res) {
-        console.log(res)
         that.setData({
-          detail: res.data
+          title: res.data.title,
+          list: JSON.parse(res.data.content)
         })
-      },
-      fail:function(res){
-        console.log(res);
+        console.log(that.data.list)
       }
-    })   
+    })
   },
   imageLoad: function (e) {
     var imageSize = imageUtil.imageUtil(e);
