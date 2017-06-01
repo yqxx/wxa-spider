@@ -31,9 +31,9 @@ App({
         name: '蚂蜂窝',
         icon: 'http://images.mafengwo.net/images/app/m/logo_gonglve_v6.png?v=20150825'
       },
-      'xueqiu': {
-        name: '雪球',
-        icon: 'http://images.mafengwo.net/images/app/m/logo_gonglve_v6.png?v=20150825'
+      'ifanr': {
+        name: '爱范儿',
+        icon: 'http://ifanr-cdn.b0.upaiyun.com/wp-content/themes/ifanr-4.0/static/images/ifanr/top-nav-down-logo.png'
       }
     }
   }
