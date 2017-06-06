@@ -1,4 +1,4 @@
-var util = require('../../utils/util.js');  
+var util = require('../../utils/util.js');
 var app = getApp()
 Page({
   data: {
@@ -11,22 +11,21 @@ Page({
       url: 'https://api.liyiqi.me/list',
       success: function (res) {
         var list = new Array();
-        for(var d in res.data){
+        for (var d in res.data) {
           var data = res.data[d];
           data.sourceName = app.globalData.source[data.source].name;
           data.sourceIcon = app.globalData.source[data.source].icon;
           data.time = util.topicTime(new Date(data.createdAt).getTime());
           list.push(data);
         }
-        console.log(list)
         that.setData({
           list: list
         })
       },
-      fail:function(res){
+      fail: function (res) {
         console.log(res);
       }
-    })   
+    })
   },
   goDetailView: function (e) {
     var id = e.currentTarget.dataset.id;
