@@ -1,31 +1,53 @@
 var util = require('../../utils/util.js');
-var app = getApp()
+var app = getApp();
+
 Page({
   data: {
     list: [],
+    sources: [],
     imageWidth: wx.getSystemInfoSync().windowWidth
   },
   onLoad: function () {
     var that = this;
+    that.loadList();
+    that.loadSource();
+  },
+  loadSource: function () {
+    var that = this;
+    app.getSource(function (data) {
+      that.setData({
+        sources: data
+      });
+    })
+  },
+  loadList: function () {
+    var that = this;
     wx.request({
-      url: 'https://api.liyiqi.me/list',
+      url: app.globalData.api_host + '/list',
       success: function (res) {
-        var list = new Array();
-        for (var d in res.data) {
-          var data = res.data[d];
-          data.sourceName = app.globalData.source[data.source].name;
-          data.sourceIcon = app.globalData.source[data.source].icon;
-          data.time = util.topicTime(new Date(data.createdAt).getTime());
-          list.push(data);
-        }
         that.setData({
-          list: list
+          list: that.renderList(res.data)
         })
-      },
-      fail: function (res) {
-        console.log(res);
       }
     })
+  },
+  renderList: function (list) {
+    var that = this;
+    var array = new Array();
+    for (var d in list) {
+      var data = list[d];
+      try {
+        var source = app.renderSource(data.source);
+        data.sourceName = source.name;
+        data.sourceIcon = source.icon;
+        data.time = util.topicTime(new Date(data.createdAt).getTime());
+      } catch (error) {
+
+      }
+
+      array.push(data);
+    }
+    return array;
   },
   goDetailView: function (e) {
     var id = e.currentTarget.dataset.id;

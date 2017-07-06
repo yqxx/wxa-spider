@@ -1,16 +1,21 @@
+<view class="sources-panel">
+  <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+    <view wx:for="{{sources}}" class="scroll-view-item_H">{{item.name}}</view>
+  </scroll-view>
+</view>
 <view class="weui-panel">
   <view wx:for="{{list}}">
     <view class="section" data-id="{{item.sid}}" data-source="{{item.source}}" bindtap="goDetailView">
       <image mode="widthFix" src="{{item.img}}" style="width: {{imageWidth}}px;"></image>
       <view class="weui-panel__hd">{{item.title}}</view>
-        <view class="weui-panel__bd">
-          <view class="weui-media-box weui-media-box_text">
-            <view class="weui-media-box__desc">{{item.info}}</view>
-            <view class="weui-media-box__info">
-                <image class="source_icon" src="{{item.sourceIcon}}"></image>
-                <view class="weui-media-box__info__meta">{{item.sourceName}}</view>
-                <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.time}}</view>
-            </view>
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_text">
+          <view class="weui-media-box__desc">{{item.info}}</view>
+          <view class="weui-media-box__info">
+            <image class="source_icon" src="{{item.sourceIcon}}"></image>
+            <view class="weui-media-box__info__meta">{{item.sourceName}}</view>
+            <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.time}}</view>
+          </view>
         </view>
       </view>
     </view>

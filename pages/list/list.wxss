@@ -1,4 +1,4 @@
-text{
+text {
   font-size: 80%;
 }
 
@@ -6,12 +6,38 @@ text{
   padding: 30px;
 }
 
-.source_icon{
+.source_icon {
   float: left;
   width: 15px;
   height: 15px;
   margin-right: 5px;
 }
+
 .weui-media-box__info {
-  line-height:1.2em;
+  line-height: 1.2em;
+}
+
+.scroll-view_H {
+  white-space: nowrap;
+}
+
+.scroll-view-item_H {
+  text-align: center;
+  display: inline-block;
+  padding: 15px;
+  color: #999;
+  font-size: 13px;
+}
+
+.sources-panel{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5000;
+  background: #fff;
+  width: 100%;
+}
+
+.weui-panel{
+  margin-top: 30px;
 }

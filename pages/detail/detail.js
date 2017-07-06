@@ -9,7 +9,7 @@ Page({
   onLoad: function (option) {
     var that = this;
     wx.request({
-      url: 'https://api.liyiqi.me/detail/' + option.source + '/' + option.sid,
+      url: app.globalData.api_host + '/detail/' + option.source + '/' + option.sid,
       success: function (res) {
         that.setData({
           title: res.data.title,
