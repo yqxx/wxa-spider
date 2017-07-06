@@ -1,6 +1,6 @@
 <view class="sources-panel">
   <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
-    <view wx:for="{{sources}}" class="scroll-view-item_H">{{item.name}}</view>
+    <view wx:for="{{sources}}" class="scroll-view-item_H" bindtap="onSourceClick" data-code="{{item.code}}">{{item.name}}</view>
   </scroll-view>
 </view>
 <view class="weui-panel">
