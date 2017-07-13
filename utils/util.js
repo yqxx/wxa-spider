@@ -131,8 +131,15 @@ function imageUtil(e) {
   return imageSize;
 }
 
+function formatStr(str) {
+  str = str.replace(/&nbsp;/g, " ");
+  str = str.replace(/<br>/g, " ");
+  return str
+}
+
 module.exports = {
   formatTime: formatTime,
   topicTime: topicTime,
-  imageUtil: imageUtil
+  imageUtil: imageUtil,
+  formatStr: formatStr
 }

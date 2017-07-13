@@ -4,20 +4,22 @@
   </scroll-view>
 </view>
 <view class="weui-panel">
-  <view wx:for="{{list}}">
-    <view class="section" data-id="{{item.sid}}" data-source="{{item.source}}" bindtap="goDetailView">
-      <image mode="widthFix" src="{{item.img}}" style="width: {{imageWidth}}px;"></image>
-      <view class="weui-panel__hd">{{item.title}}</view>
-      <view class="weui-panel__bd">
-        <view class="weui-media-box weui-media-box_text">
-          <view class="weui-media-box__desc">{{item.info}}</view>
-          <view class="weui-media-box__info">
-            <image class="source_icon" src="{{item.sourceIcon}}"></image>
-            <view class="weui-media-box__info__meta">{{item.sourceName}}</view>
-            <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.time}}</view>
+  <scroll-view scroll-y="true" style="height:{{scrollHeight}}px;" bindscrolltolower="bindDownLoad" bindscroll="scroll">
+    <view wx:for="{{list}}">
+      <view class="section" data-id="{{item.sid}}" data-source="{{item.source}}" bindtap="goDetailView">
+        <image mode="widthFix" src="{{item.img}}" style="width: {{imageWidth}}px;"></image>
+        <view class="weui-panel__hd">{{item.title}}</view>
+        <view class="weui-panel__bd">
+          <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__desc">{{item.info}}</view>
+            <view class="weui-media-box__info">
+              <image class="source_icon" src="{{item.sourceIcon}}"></image>
+              <view class="weui-media-box__info__meta">{{item.sourceName}}</view>
+              <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.time}}</view>
+            </view>
           </view>
         </view>
       </view>
     </view>
-  </view>
+  </scroll-view>
 </view>

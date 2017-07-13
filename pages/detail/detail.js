@@ -1,4 +1,5 @@
-var imageUtil = require('../../utils/util.js');
+var util = require('../../utils/util.js');
+
 var app = getApp()
 Page({
   data: {
@@ -13,17 +14,10 @@ Page({
       success: function (res) {
         that.setData({
           title: res.data.title,
-          list: JSON.parse(res.data.content)
+          list: JSON.parse(util.formatStr(res.data.content))
         })
         console.log(that.data.list)
       }
-    })
-  },
-  imageLoad: function (e) {
-    var imageSize = imageUtil.imageUtil(e);
-    this.setData({
-      imagewidth: imageSize.imageWidth,
-      imageheight: imageSize.imageHeight
     })
   }
 })
