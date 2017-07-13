@@ -2,6 +2,9 @@ App({
   onLaunch: function () {
     var that = this;
     that.getSource(function (data) {
+      data.unshift({
+        name: '首页'
+      })
       that.globalData.source = data
     })
   },
